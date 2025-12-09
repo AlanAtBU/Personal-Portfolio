@@ -1,0 +1,1 @@
+This is a simple web page for my personal portfolio, and also for final project of CS601.

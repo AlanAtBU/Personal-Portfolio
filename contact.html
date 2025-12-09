@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Contact · Alan Zhao</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+	<div class="container header-inner">
+		<a href="index.html" class="logo">
+			<div class="logo-mark">AZ</div>
+			<span class="logo-text">Alan Zhao · Portfolio</span>
+		</a>
+		<nav aria-label="Primary Navigation">
+			<a href="index.html">Home</a>
+			<a href="bio.html">Biography</a>
+			<a href="interests.html">Interests</a>
+			<a href="resume.html">Resume</a>
+			<a href="gallery.html">Gallery</a>
+			<a href="contact.html" class="active">Contact</a>
+		</nav>
+	</div>
+</header>
+
+<main>
+	<div class="container layout-single">
+		<section class="page">
+			<div class="section-header">
+				<p class="section-kicker">Get in Touch</p>
+				<h1 class="section-title">Contact Me</h1>
+				<p class="section-subtitle">
+					This form sends message to Alan.
+				</p>
+			</div>
+
+			<div class="contact-layout">
+				<form class="contact-form" id="contactForm">
+					<div class="form-row">
+						<label for="name">Name</label>
+						<input type="text" id="name" name="name" required>
+					</div>
+
+					<div class="form-row">
+						<label for="email">Email</label>
+						<input type="email" id="email" name="email" required>
+					</div>
+
+					<div class="form-row">
+						<label for="subject">Subject</label>
+						<input type="text" id="subject" name="subject">
+					</div>
+
+					<div class="form-row">
+						<label for="message">Message</label>
+						<textarea id="message" name="message" rows="5" required></textarea>
+					</div>
+
+					<button type="submit" class="button">Send Message</button>
+				</form>
+
+			</div>
+		</section>
+	</div>
+</main>
+
+<footer>
+	<div class="container footer-inner">
+		<div>&copy; 2025 Alan Zhao. All rights reserved.</div>
+		<div class="footer-links">
+			<a href="index.html">Home</a>
+			<a href="gallery.html">Gallery</a>
+			<a href="contact.html">Contact</a>
+		</div>
+	</div>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+	const form = document.getElementById("contactForm");
+	if (!form) return;
+
+	form.addEventListener("submit", async (event) => {
+		event.preventDefault();
+
+		const formData = new FormData(form);
+		const payload = {
+			name: formData.get("name") || "",
+			email: formData.get("email") || "",
+			subject: formData.get("subject") || "",
+			body: formData.get("message") || ""
+		};
+
+		try {
+			const res = await fetch("http://localhost:4000/api/messages", {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify(payload)
+			});
+
+			if (!res.ok) {
+				throw new Error("HTTP " + res.status);
+			}
+
+			alert("Message stored successfully!");
+			form.reset();
+		} catch (err) {
+			console.error(err);
+			alert("Failed to send message. Is the Node server running?");
+		}
+	});
+});
+</script>
+</body>
+</html>

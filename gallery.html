@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Gallery · Alan Zhao</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+	<div class="container header-inner">
+		<a href="index.html" class="logo">
+			<div class="logo-mark">AZ</div>
+			<span class="logo-text">Alan Zhao · Portfolio</span>
+		</a>
+		<nav aria-label="Primary Navigation">
+			<a href="index.html">Home</a>
+			<a href="bio.html">Biography</a>
+			<a href="interests.html">Interests</a>
+			<a href="resume.html">Resume</a>
+			<a href="gallery.html" class="active">Gallery</a>
+			<a href="contact.html">Contact</a>
+		</nav>
+	</div>
+</header>
+
+<main>
+	<div class="container layout-single">
+		<section class="page">
+		    <div class="section-header">
+		        <p class="section-kicker">Planner</p>
+		        <h1 class="section-title">Goals</h1>
+		        <p class="section-subtitle">
+		            Drag the cards below to reorder my goals.
+		        </p>
+		    </div>
+
+		    <div class="projects-grid" id="galleryGrid">
+		        <article class="project-card gallery-item" draggable="true">
+		            <div>
+		                <p class="project-label">Personal</p>
+		                <h2 class="project-title">Hobby Project</h2>
+		                <p class="project-meta">
+		                    Dedicate time to a fun personal project that helps me learn, grow, 
+		                    and express my creativity.
+		                </p>
+		                <div class="project-tags">
+		                    <span>Creative</span>
+		                    <span>Self-growth</span>
+		                </div>
+		            </div>
+		            <div class="project-footer">
+		                <span>Priority: High</span>
+		            </div>
+		        </article>
+
+		        <article class="project-card gallery-item" draggable="true">
+		            <div>
+		                <p class="project-label">Academic</p>
+		                <h2 class="project-title">Good Grade</h2>
+		                <p class="project-meta">
+		                    Stay consistent with coursework, review lecture notes, and keep up good 
+		                    study habits to earn strong academic grades.
+		                </p>
+		                <div class="project-tags">
+		                    <span>Study</span>
+		                    <span>Discipline</span>
+		                </div>
+		            </div>
+		            <div class="project-footer">
+		                <span>Priority: High</span>
+		            </div>
+		        </article>
+
+		        <article class="project-card gallery-item" draggable="true">
+		            <div>
+		                <p class="project-label">Gaming</p>
+		                <h2 class="project-title">New Record</h2>
+		                <p class="project-meta">
+		                    Aim to set a new personal record in my favorite video game through 
+		                    practice, strategy improvement, and consistent play.
+		                </p>
+		                <div class="project-tags">
+		                    <span>Gaming</span>
+		                    <span>Challenge</span>
+		                </div>
+		            </div>
+		            <div class="project-footer">
+		                <span>Priority: Medium</span>
+		            </div>
+		        </article>
+
+		        <article class="project-card gallery-item" draggable="true">
+		            <div>
+		                <p class="project-label">Reading</p>
+		                <h2 class="project-title">Read a Book</h2>
+		                <p class="project-meta">
+		                    Pick a book that interests me and commit to reading regularly to build 
+		                    knowledge, focus, and healthy habits.
+		                </p>
+		                <div class="project-tags">
+		                    <span>Reading</span>
+		                    <span>Mindfulness</span>
+		                </div>
+		            </div>
+		            <div class="project-footer">
+		                <span>Priority: Low</span>
+		            </div>
+		        </article>
+		    </div>
+
+		    <p class="gallery-note">
+		        Tip: Drag cards up or down to reorder my goals by your preference.. though I cannot see it:)
+		    </p>
+		</section>
+
+
+	</div>
+</main>
+
+<footer>
+	<div class="container footer-inner">
+		<div>&copy; 2025 Alan Zhao. All rights reserved.</div>
+		<div class="footer-links">
+			<a href="index.html">Home</a>
+			<a href="gallery.html">Gallery</a>
+			<a href="contact.html">Contact</a>
+		</div>
+	</div>
+</footer>
+
+<script src="dist/app.js" type="module"></script>
+</body>
+</html>
