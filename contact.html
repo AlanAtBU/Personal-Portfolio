@@ -31,11 +31,12 @@
 				<p class="section-kicker">Get in Touch</p>
 				<h1 class="section-title">Contact Me</h1>
 				<p class="section-subtitle">
-					This form sends message to Alan.
+					This form will open your email client so you can send me a message.
 				</p>
 			</div>
 
 			<div class="contact-layout">
+
 				<form class="contact-form" id="contactForm">
 					<div class="form-row">
 						<label for="name">Name</label>
@@ -81,34 +82,26 @@ document.addEventListener("DOMContentLoaded", () => {
 	const form = document.getElementById("contactForm");
 	if (!form) return;
 
-	form.addEventListener("submit", async (event) => {
+	form.addEventListener("submit", (event) => {
 		event.preventDefault();
 
 		const formData = new FormData(form);
-		const payload = {
-			name: formData.get("name") || "",
-			email: formData.get("email") || "",
-			subject: formData.get("subject") || "",
-			body: formData.get("message") || ""
-		};
+		const name = formData.get("name") || "";
+		const email = formData.get("email") || "";
+		const subject = formData.get("subject") || "";
+		const body = formData.get("message") || "";
 
-		try {
-			const res = await fetch("http://localhost:4000/api/messages", {
-				method: "POST",
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify(payload)
-			});
+		const targetEmail = "RealAlan.email@example.com"; //intentionally used a sample email in case of privacy.
 
-			if (!res.ok) {
-				throw new Error("HTTP " + res.status);
-			}
+		const finalSubject = subject || `New portfolio contact from ${name || "a visitor"}`;
+		const finalBody =
+			`${body}\n\n---\nFrom: ${name || "Unknown"} <${email || "no email provided"}>`;
 
-			alert("Message stored successfully!");
-			form.reset();
-		} catch (err) {
-			console.error(err);
-			alert("Failed to send message. Is the Node server running?");
-		}
+		const mailtoLink =
+			`mailto:${encodeURIComponent(targetEmail)}?subject=${encodeURIComponent(finalSubject)}&body=${encodeURIComponent(finalBody)}`;
+
+		window.location.href = mailtoLink;
+		form.reset();
 	});
 });
 </script>
