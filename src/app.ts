@@ -1,4 +1,3 @@
-// Drag & Drop
 function initGalleryDragAndDrop() {
   const grid = document.getElementById("galleryGrid");
   if (!grid) return;
