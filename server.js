@@ -1,4 +1,3 @@
-// server.js
 const express = require("express");
 const cors = require("cors");
 const fs = require("fs");
@@ -23,7 +22,6 @@ app.post("/api/messages", (req, res) => {
     body
   };
 
-  // <-- THIS SHOULD ALWAYS PRINT WHEN A MESSAGE IS STORED
   console.log("Received message:", entry);
 
   fs.appendFile(DATA_FILE, JSON.stringify(entry) + "\n", (err) => {
